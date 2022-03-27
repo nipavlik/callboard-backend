@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  backend:
+    build: .
+    container_name: backend_nest
+    restart: always
+    depends_on:
+      - nginx
+    ports:
+      - 3000:3000
+  nginx:
+    image: nginx:alpine
+    container_name: backend_nginx
+    restart: always
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+
+networks:
+  backend-network:

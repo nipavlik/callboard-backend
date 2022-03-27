@@ -12,15 +12,29 @@
 - Проект выложен на Github/Bitbucket :heavy_check_mark: 
 - Будут написаны юнит-тесты
 - Использование TypeScript будет плюсом :heavy_check_mark:
-- Контейнеризация – возможность поднять проект с помощью docker’a
+- Контейнеризация – возможность поднять проект с помощью docker’a :heavy_check_mark:
 - Кеширование – для увеличения скорости ответа сервера может быть добавлено кеширование (Redis/Memcached)
 ## Установка
+##### Установите зависимости
 ```bash
 $ npm install
-
+```
+##### Запустите миграции
+```bash
 $ npm run typeorm migration:run
-
+```
+##### Запустите приложение
+```bash
 $ npm run start:dev
+```
+## Docker
+##### Запустите приложение
+```bash
+docker-compose up
+```
+##### Запустите миграции
+```bash
+docker exec -it backend_nest npm run typeorm migration:run
 ```
 ## API
 ```bash
